@@ -4,7 +4,7 @@ A RESTful API for a personalized news aggregator built with Node.js, Express.js,
 
 ## Features
 
-- 🔐 **User Authentication**: Secure signup and login with JWT tokens
+- 🔐 **User Authentication**: Secure registration and login with JWT tokens
 - 👤 **User Preferences**: Manage personalized news preferences
 - 📰 **News Aggregation**: Fetch news based on user preferences
 - 🛡️ **Security**: Password hashing with bcrypt and token-based authentication
@@ -67,7 +67,7 @@ npm test
 
 ### Authentication
 
-#### POST /users/signup
+#### POST /register
 Create a new user account.
 
 **Request Body:**
@@ -83,7 +83,7 @@ Create a new user account.
 **Response:**
 ```json
 {
-  "message": "User created successfully",
+  "message": "User registered successfully",
   "user": {
     "id": "1234567890",
     "name": "John Doe",
@@ -95,7 +95,7 @@ Create a new user account.
 }
 ```
 
-#### POST /users/login
+#### POST /login
 Authenticate an existing user.
 
 **Request Body:**
@@ -123,7 +123,7 @@ Authenticate an existing user.
 
 ### User Preferences
 
-#### GET /users/preferences
+#### GET /preferences
 Get user preferences (requires authentication).
 
 **Headers:**
@@ -138,7 +138,7 @@ Authorization: Bearer <token>
 }
 ```
 
-#### PUT /users/preferences
+#### PUT /preferences
 Update user preferences (requires authentication).
 
 **Headers:**
@@ -248,7 +248,9 @@ news-aggregator-api/
 ├── models/
 │   └── User.js            # User model and data management
 ├── routes/
-│   ├── users.js           # User authentication and preferences routes
+│   ├── register.js        # User registration routes
+│   ├── login.js           # User authentication routes
+│   ├── preferences.js     # User preferences routes
 │   └── news.js            # News fetching routes
 ├── test/
 │   └── server.test.js     # API tests
@@ -266,7 +268,7 @@ npm test
 ```
 
 The tests cover:
-- User signup and login
+- User registration and login
 - Authentication token validation
 - User preferences management
 - News fetching with authentication

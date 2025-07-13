@@ -2,7 +2,9 @@ const express = require('express');
 const config = require('./config/config');
 
 // Import routes
-const userRoutes = require('./routes/users');
+const registerRoutes = require('./routes/register');
+const loginRoutes = require('./routes/login');
+const preferencesRoutes = require('./routes/preferences');
 const newsRoutes = require('./routes/news');
 
 const app = express();
@@ -25,7 +27,9 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/users', userRoutes);
+app.use('/register', registerRoutes);
+app.use('/login', loginRoutes);
+app.use('/preferences', preferencesRoutes);
 app.use('/news', newsRoutes);
 
 // Health check endpoint
